@@ -5,5 +5,5 @@ Requirements:
 Python3
 
 Python3 required modules:
-beautifulsoup4
-google
+requests
+beautifulsoup
