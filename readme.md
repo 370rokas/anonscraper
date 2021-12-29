@@ -1,9 +1,29 @@
-This is a scraper for Anonfile.com. It uses google api to search for files.
-To run this download the anonscraper.py file and run it as a python3 script.
+# AnonScraper
 
-Requirements:
-Python3
+Scrapes uploaded files to AnonFile by provided query using Google Dorking <br><br>
+![Main Menu][img_main]
 
-Python3 required modules:
-requests
-beautifulsoup
+## 🔧 Installation
+Use the package manager [pip][url_pip] to install the requirements.
+
+```bash
+pip install -r requirements.txt
+```
+
+## ✨ Usage
+
+```bash
+anonscraper.py -q <query>
+```
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📝 License
+This project is licensed under the [MIT][url_mit] license.
+
+[url_pip]: https://pip.pypa.io/en/stable/
+[url_mit]: https://choosealicense.com/licenses/mit/
+
+[img_main]: img/main.png
