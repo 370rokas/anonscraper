@@ -55,13 +55,14 @@ def main():
         ''' + Fore.RESET)
 
     argv = sys.argv[1:]
-    options = "hq:"
-    l_options = ["help", "query"]
+    options = "hq:f:"
+    l_options = ["help", "query", "filename"]
 
     query = ""
+    filename = ""
 
     def display_help():
-        print(Fore.WHITE + "anonscraper.py -q <query>" + Fore.RESET)
+        print(Fore.WHITE + "anonscraper.py -q <query> -f <filename>" + Fore.RESET)
         sys.exit()
 
     try:
@@ -77,19 +78,26 @@ def main():
             if c_arg in ('-q', '--query'):
                 query = c_val
 
+            if c_arg in ('-f', '--filename'):
+                filename = c_val
+
     except getopt.error as err:
         print(str(err))
 
     urls = google(query)
     filtered = []
 
-    for x in range(len(urls)):
-        if ("anonfile.com/" in urls[x] and urls[x] != "https://anonfile.com" and not "google." in urls[x]):
-            filtered.append(urls[x])
+    for url in urls:
+        if ("anonfile.com/" in url and url != "https://anonfile.com" and not "google." in url):
+            filtered.append(url)
 
     for i in range(len(filtered)):
         print(Fore.CYAN + str(i+1) + ". " + filtered[i] + Fore.RESET)
+        if filename != "":
+            open(filename, 'a').write(filtered[i] + "\n")
 
+    if filename != "":
+        print(Fore.GREEN + "[i] Saved results into " + filename)
     print(Fore.MAGENTA + "[i] Finished. Got " + str(len(filtered)) + " results." + Fore.RESET)
 
 

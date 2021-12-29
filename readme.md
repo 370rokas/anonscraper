@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ## ✨ Usage
 
 ```bash
-anonscraper.py -q <query>
+anonscraper.py -q <query> -f <filename>
 ```
 
 ## 🤝 Contributing
